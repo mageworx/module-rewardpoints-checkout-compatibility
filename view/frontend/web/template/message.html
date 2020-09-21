@@ -1,0 +1,13 @@
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<!-- ko if: isAvailable() -->
+    <!-- ko if: isApplied() -->
+        <div class="message message--positive" data-bind="visible: isAvailable">
+            <p class="text" data-bind="text: message"></p>
+        </div>
+    <!-- /ko -->
+<!-- /ko -->

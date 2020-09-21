@@ -1,0 +1,40 @@
+<div class="summary__cell" data-bind="visible: isAvailable()">
+    <dl class="collapsible mageworx-rewardpoints"
+        id="mageworx_rewardpoints_placer"
+        data-bind="css: {'collapsible--expanded': contentVisible}">
+        <dt class="collapsible__header" data-bind="click: toggleCollapsible">
+        <span class="link link--variation-accent link--variation-strong"
+              data-bind="i18n: 'Reward points'"></span>
+        </dt>
+
+        <dd class="collapsible__content">
+            <div class="form form--condensed">
+
+                <!-- ko foreach: getRegion('messages') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+
+                <div class="form__field">
+                    <p class="text text--variation-distant text--variation-strong" data-bind="html: $t(label)"></p>
+                </div>
+
+                <div class="form__field">
+
+                    <!-- ko if: isApplied() -->
+                    <button class="button button--outline" type="submit"
+                            data-bind="'value': $t('Cancel'), click: cancel">
+                        <span><!-- ko i18n: 'Cancel Reward Points'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+
+                    <!-- ko ifnot: isApplied() -->
+                    <button class="button button--primary" data-bind="click: apply">
+                        <span><!-- ko i18n: 'Apply My Reward Points'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+
+                </div>
+            </div>
+        </dd>
+    </dl>
+</div>
