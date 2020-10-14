@@ -1,0 +1,74 @@
+<div class="summary__cell" data-bind="visible: isAvailable()">
+    <dl class="collapsible mageworx-rewardponts"
+        id="mageworx_rewardpoints_placer"
+        data-bind="css: {'collapsible--expanded': contentVisible}">
+        <dt class="collapsible__header" data-bind="click: toggleCollapsible">
+        <span class="link link--variation-accent link--variation-strong"
+              data-bind="i18n: 'Reward points'"></span>
+        </dt>
+
+        <dd class="collapsible__content">
+            <div class="form form--condensed">
+
+                <!-- ko foreach: getRegion('messages') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+
+                <div class="form__field">
+                    <p class="text text--variation-distant text--variation-strong" data-bind="html: $t(label)"></p>
+                </div>
+
+                <div class="form__field">
+
+                    <!-- ko if: isApplied() -->
+                    <button class="button button--outline" type="submit"
+                            data-bind="'value': $t('Cancel'), click: cancel">
+                        <span><!-- ko i18n: 'Cancel Reward Points'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+
+                    <!-- ko ifnot: isApplied() -->
+                    <button class="button button--primary" data-bind="click: apply">
+                        <span><!-- ko i18n: 'Apply All Reward Points'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+
+                </div>
+
+                <div class="form__field">
+                    <dl class="collapsible payment-option opc-payment-additional _collapsible"
+                        data-bind="mageInit: {'collapsible':{'openedState': '_active'}}">
+                        <dt class="collapsible__header" data-role="title">
+                        <span class="link link--variation-accent link--variation-strong action action-toggle"
+                              id="block-custom-points-heading"
+                              role="heading">
+                            <!-- ko i18n: 'Apply Custom Points Amount'--><!-- /ko -->
+                        </span>
+                        </dt>
+                        <dd class="payment-option-content" data-role="content">
+                            <div class="form__field">
+                                <div class="control-group">
+                                    <div class="input">
+                                        <label class="input__label"></label>
+                                        <input class="input__control"
+                                               type="text"
+                                               id="rewardpoints-amount"
+                                               name="rewardpoints_amount"
+                                               data-validate="{'required-number':true,'validate-greater-than-zero':true}"
+                                               data-bind="value: pointAmount,
+                                                attr: { placeholder: inputPlaceholder }"
+                                        />
+                                    </div>
+                                    <button class="button button--primary" data-bind="click: applyAmount">
+                                        <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+
+            </div>
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,17 @@
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<!-- ko if: isAvailable() -->
+    <div class="summary__field">
+        <div class="summary__cell">
+            <p class="text text--variation-strong text--variation-distant"
+               data-bind="text: $t(title) + ' ' + '(' + getRewardPointsAmount() + ')'"></p>
+        </div>
+        <div class="summary__cell summary__cell--content-right">
+            <p class="text text--variation-strong" data-bind="text: getValue()" style="color:red;"></p>
+        </div>
+    </div>
+<!-- /ko -->
